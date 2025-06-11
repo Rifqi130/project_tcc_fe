@@ -30,7 +30,7 @@ Frontend (PHP) --> API Client --> REST API (Node.js) --> Database (MySQL)
 1. **Clone/Copy the frontend files** to your web server directory
 2. **Configure the API endpoint** in `includes/config.php`:
    ```php
-   define('API_BASE_URL', 'http://localhost:3000/api');
+   define('API_BASE_URL', 'https://34.132.53.63:3000/api');
    ```
 3. **Set proper permissions** for upload directories:
    ```bash
@@ -45,10 +45,10 @@ Frontend (PHP) --> API Client --> REST API (Node.js) --> Database (MySQL)
 
 ```php
 // API Configuration
-define('API_BASE_URL', 'http://localhost:3000/api');
+define('API_BASE_URL', 'https://34.132.53.63:3000/api');
 
 // Frontend Configuration
-define('FRONTEND_BASE_URL', 'http://localhost/pengaduan/frontend');
+define('FRONTEND_BASE_URL', 'http://localhost:8080');
 
 // Upload Configuration
 define('UPLOAD_MAX_SIZE', 5 * 1024 * 1024); // 5MB
@@ -283,8 +283,8 @@ Update both API endpoints in `includes/config.php`:
 
 ```php
 // MySQL Server (Main)
-define('API_BASE_URL', 'http://localhost:3000/api');
+define('API_BASE_URL', 'https://34.132.53.63:3000/api');
 
 // PostgreSQL Server (Analytics)
-define('PG_API_BASE_URL', 'http://localhost:3001/api');
+define('PG_API_BASE_URL', 'https://34.132.53.63:3001/api');
 ```

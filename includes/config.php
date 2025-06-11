@@ -5,12 +5,12 @@
  */
 
 // API Configuration - MySQL Server (Main) - Updated to localhost
-define('API_BASE_URL', 'http://localhost:3000/api');
+define('API_BASE_URL', 'http://34.42.138.130:3000/api');
 
 // API Configuration - PostgreSQL Server (Analytics/Logs) - Updated to localhost
 define('PG_API_BASE_URL', 'http://localhost:3001/api');
 
-define('FRONTEND_BASE_URL', 'http://localhost:8080');
+define('FRONTEND_BASE_URL', 'https://34.132.53.63/:8080');
 
 // Frontend Configuration - Updated to localhost
 # define('FRONTEND_BASE_URL', 'http://localhost/pengaduan/frontend');
