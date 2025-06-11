@@ -7,13 +7,11 @@
 // API Configuration - MySQL Server (Main) - Updated to localhost
 define('API_BASE_URL', 'http://34.42.138.130:3000/api');
 
-// API Configuration - PostgreSQL Server (Analytics/Logs) - Updated to localhost
-define('PG_API_BASE_URL', 'http://locoalhost:3001/api');
+// API Configuration - PostgreSQL Server (Analytics/Logs) - Fixed typo
+define('PG_API_BASE_URL', 'http://localhost:3001/api');
 
-define('FRONTEND_BASE_URL', 'https://34.68.150.219:8080');
-
-// Frontend Configuration - Updated to localhost
-# define('FRONTEND_BASE_URL', 'http://localhost/pengaduan/frontend');
+// Frontend Configuration - Fixed to match actual deployment
+define('FRONTEND_BASE_URL', 'http://34.68.150.219');
 
 // Upload Configuration
 define('UPLOAD_MAX_SIZE', 5 * 1024 * 1024); // 5MB in bytes

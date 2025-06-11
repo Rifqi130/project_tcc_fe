@@ -286,5 +286,5 @@ Update both API endpoints in `includes/config.php`:
 define('API_BASE_URL', 'https://34.132.53.130:3000/api');
 
 // PostgreSQL Server (Analytics)
-define('PG_API_BASE_URL', 'https://localhost:3001/api');
+define('PG_API_BASE_URL', 'http://localhost:3001/api');
 ```
