@@ -6,7 +6,7 @@ $login_error = null;
 $register_message = $_GET['register_success'] ?? null; // Check for registration success message
 
 if (isLoggedIn()) { 
-    header('Location: /pengaduan/frontend/index.php');
+    header('Location: index.php');
     exit;
 }
 

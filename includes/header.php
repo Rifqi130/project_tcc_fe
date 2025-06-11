@@ -38,19 +38,19 @@
                     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') { ?>
                         <li class="nav-item">
                             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : ''; ?>" 
-                               href="/pengaduan/frontend/dashboard.php">
+                               href="dashboard.php">
                                <i class="fas fa-tachometer-alt me-1"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'complaints.php' ? 'active' : ''; ?>" 
-                               href="/pengaduan/frontend/complaints.php">
+                               href="complaints.php">
                                <i class="fas fa-list me-1"></i>Pengaduan
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" 
-                               href="/pengaduan/frontend/users.php">
+                               href="users.php">
                                <i class="fas fa-users me-1"></i>Pengguna
                             </a>
                         </li>
@@ -58,7 +58,7 @@
                     <?php if (!isAdmin()) { ?>
                         <li class="nav-item">
                             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'public_complaints.php' ? 'active' : ''; ?>" 
-                               href="/pengaduan/frontend/public_complaints.php">
+                               href="public_complaints.php">
                                <i class="fas fa-eye me-1"></i>Pengaduan Publik
                             </a>
                         </li>
@@ -70,7 +70,7 @@
                         <?php if (isMahasiswa()): ?>
                             <li class="nav-item">
                                 <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'my_complaints.php' ? 'active' : ''; ?>" 
-                                   href="/pengaduan/frontend/my_complaints.php">
+                                   href="my_complaints.php">
                                    <i class="fas fa-file-alt me-1"></i>Pengaduan Saya
                                 </a>
                             </li>
@@ -91,7 +91,7 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="/pengaduan/frontend/logout.php">
+                                    <a class="dropdown-item" href="logout.php">
                                         <i class="fas fa-sign-out-alt me-1"></i>Logout
                                     </a>
                                 </li>
@@ -100,7 +100,7 @@
                     <?php } else { ?>
                         <li class="nav-item">
                             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : ''; ?>"
-                                href="/pengaduan/frontend/login.php">
+                                href="login.php">
                                 <i class="fas fa-sign-in-alt me-1"></i>Login
                             </a>
                         </li>

@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if (isAdmin()):
-    header('Location: /pengaduan/frontend/dashboard.php');
+    header('Location: dashboard.php');
     exit();
 else: ?>
     <div class="row justify-content-center">

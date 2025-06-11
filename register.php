@@ -5,7 +5,7 @@ include 'includes/header.php';
 $register_error = null;
 
 if (isLoggedIn()) {
-    header('Location: /pengaduan/frontend/index.php');
+    header('Location: index.php');
     exit;
 }
 

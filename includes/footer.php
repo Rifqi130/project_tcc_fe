@@ -16,10 +16,10 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h6 class="text-uppercase mb-3">Menu</h6>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="/pengaduan/frontend/index.php" class="text-light text-decoration-none">Buat Pengaduan</a></li>
-                        <li><a href="/pengaduan/frontend/public_complaints.php" class="text-light text-decoration-none">Pengaduan Publik</a></li>
+                        <li><a href="index.php" class="text-light text-decoration-none">Buat Pengaduan</a></li>
+                        <li><a href="public_complaints.php" class="text-light text-decoration-none">Pengaduan Publik</a></li>
                         <?php if (!isLoggedIn()) { ?>
-                            <li><a href="/pengaduan/frontend/login.php" class="text-light text-decoration-none">Login</a></li>
+                            <li><a href="login.php" class="text-light text-decoration-none">Login</a></li>
                         <?php } ?>
                     </ul>
                 </div>

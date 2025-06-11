@@ -2,7 +2,7 @@
 require_once 'includes/api_functions.php';
 include 'includes/header.php';
 if (isAdmin()) {
-    header('Location: /pengaduan/frontend/complaints.php');
+    header('Location: complaints.php');
     exit;
 }
 ?>
