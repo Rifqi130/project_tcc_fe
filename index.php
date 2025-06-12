@@ -92,6 +92,13 @@ else: ?>
                         </div>
                     <?php endif; ?>
 
+                    <!-- Debug: Check if we reach this point -->
+                    <?php if (defined('DEBUG_MODE') && DEBUG_MODE): ?>
+                        <div class="alert alert-info small">
+                            <strong>Debug:</strong> Form rendering started at <?php echo date('H:i:s'); ?>
+                        </div>
+                    <?php endif; ?>
+
                     <form method="POST" action="index.php" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col-md-12 mb-4">
@@ -242,10 +249,20 @@ else: ?>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-lg w-100">
-                            <i class="fas fa-paper-plane me-2"></i>Kirim Pengaduan
-                        </button>
+                        <!-- Ensure form button is always visible -->
+                        <div class="mb-4" style="min-height: 60px;">
+                            <button type="submit" class="btn btn-primary btn-lg w-100" id="submit-btn">
+                                <i class="fas fa-paper-plane me-2"></i>Kirim Pengaduan
+                            </button>
+                        </div>
                     </form>
+
+                    <!-- Debug: Check if we reach form end -->
+                    <?php if (defined('DEBUG_MODE') && DEBUG_MODE): ?>
+                        <div class="alert alert-success small">
+                            <strong>Debug:</strong> Form rendering completed at <?php echo date('H:i:s'); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -296,16 +313,36 @@ else: ?>
     </div>
 
     <script>
+        // Enhanced debugging for VM deployment
+        console.log('Script loading started');
+        
         // Check backend status on page load
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking backend...');
             checkBackendStatus();
+            
+            // Ensure all form elements are visible
+            setTimeout(function() {
+                const formElements = document.querySelectorAll('.form-control, .form-select, .btn');
+                console.log('Found form elements:', formElements.length);
+                
+                // Force display if hidden
+                formElements.forEach(el => {
+                    if (window.getComputedStyle(el).display === 'none') {
+                        el.style.display = 'block';
+                        console.warn('Fixed hidden element:', el);
+                    }
+                });
+            }, 1000);
         });
 
         function checkBackendStatus() {
             const statusElement = document.getElementById('backend-status');
+            if (!statusElement) return;
             
             fetch('<?php echo API_BASE_URL; ?>/health')
                 .then(response => {
+                    console.log('Backend response:', response.status);
                     if (response.ok) {
                         statusElement.textContent = 'Connected';
                         statusElement.className = 'badge bg-success';
@@ -315,9 +352,9 @@ else: ?>
                     }
                 })
                 .catch(error => {
+                    console.error('Backend check failed:', error);
                     statusElement.textContent = 'Offline';
                     statusElement.className = 'badge bg-danger';
-                    console.error('Backend check failed:', error);
                 });
         }
 

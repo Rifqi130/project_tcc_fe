@@ -13,6 +13,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
+    <!-- Fallback Bootstrap CSS (local) -->
+    <script>
+        // Check if Bootstrap CSS loaded
+        window.addEventListener('load', function() {
+            var testEl = document.createElement('div');
+            testEl.className = 'btn btn-primary d-none';
+            document.body.appendChild(testEl);
+            var styles = window.getComputedStyle(testEl);
+            if (styles.display !== 'none' || !styles.backgroundColor) {
+                console.warn('Bootstrap CSS failed to load, loading fallback...');
+                var fallbackCSS = document.createElement('link');
+                fallbackCSS.rel = 'stylesheet';
+                fallbackCSS.href = 'assets/css/bootstrap.min.css';
+                document.head.appendChild(fallbackCSS);
+            }
+            document.body.removeChild(testEl);
+        });
+    </script>
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
@@ -20,9 +39,45 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <!-- Emergency inline CSS for critical form elements -->
+    <style>
+        .form-control, .form-select, .btn {
+            min-height: 38px;
+            margin-bottom: 10px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .d-none { display: none !important; }
+        .d-block { display: block !important; }
+        .w-100 { width: 100% !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .p-3 { padding: 1rem !important; }
+        .border { border: 1px solid #dee2e6 !important; }
+        .rounded { border-radius: 0.375rem !important; }
+        .bg-light { background-color: #f8f9fa !important; }
+    </style>
 </head>
 
 <body>
+    <!-- Debug info for VM deployment -->
+    <?php if (defined('DEBUG_MODE') && DEBUG_MODE): ?>
+    <div id="debug-info" class="position-fixed top-0 end-0 bg-warning text-dark p-2 small" style="z-index: 9999; max-width: 300px;">
+        <strong>Debug Mode:</strong><br>
+        Server: <?php echo $_SERVER['HTTP_HOST'] ?? 'Unknown'; ?><br>
+        PHP: <?php echo PHP_VERSION; ?><br>
+        <span id="js-status">JS: Loading...</span>
+    </div>
+    <script>
+        document.getElementById('js-status').textContent = 'JS: OK';
+        setTimeout(() => {
+            const debugEl = document.getElementById('debug-info');
+            if (debugEl) debugEl.style.display = 'none';
+        }, 5000);
+    </script>
+    <?php endif; ?>
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
